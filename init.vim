@@ -70,11 +70,11 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
  nnoremap <S-L> gt
 
 " Press i to enter insert mode, and ii to exit insert mode.
-:inoremap ii <Esc>
-:inoremap jk <Esc>
-:inoremap kj <Esc>
-:vnoremap jk <Esc>
-:vnoremap kj <Esc>
+" :inoremap ii <Esc>
+" :inoremap jk <Esc>
+" :inoremap kj <Esc>
+" :vnoremap jk <Esc>
+" :vnoremap kj <Esc>
 
 " open file in a text by placing text and gf
 nnoremap gf :vert winc f<cr>
