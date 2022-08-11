@@ -36,6 +36,8 @@ call plug#begin()
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
  Plug 'ctrlpvim/ctrlp.vim'
  Plug 'editorconfig/editorconfig-vim'
+ Plug 'mattn/emmet-vim'
+ Plug 'tpope/vim-surround'
 call plug#end()
 
 " color schemes
