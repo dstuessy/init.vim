@@ -34,6 +34,8 @@ call plug#begin()
  Plug 'preservim/nerdcommenter'
  Plug 'mhinz/vim-startify'
  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+ Plug 'ctrlpvim/ctrlp.vim'
+ Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " color schemes
