@@ -65,6 +65,9 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
  nnoremap <C-j> <C-w>j
  nnoremap <C-k> <C-w>k
  nnoremap <C-l> <C-w>l
+" move between tabs to left//right
+ nnoremap <S-H> gT
+ nnoremap <S-L> gt
 
 " Press i to enter insert mode, and ii to exit insert mode.
 :inoremap ii <Esc>
