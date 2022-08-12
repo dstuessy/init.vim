@@ -1,6 +1,7 @@
 local M = {
   ["BurntSushi/ripgrep"] = {},
-  ["tpope/vim-surround"] = {}
+  ["tpope/vim-surround"] = {},
+  ["editorconfig/editorconfig-vim"] = {}
 }
 
 return M
