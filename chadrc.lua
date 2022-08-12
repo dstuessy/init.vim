@@ -1,5 +1,7 @@
 local M = {}
 
+vim.opt.relativenumber = true
+
 M.plugins = {
   user = require "custom.plugins"
 }
