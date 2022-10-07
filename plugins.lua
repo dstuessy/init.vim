@@ -3,6 +3,7 @@ local M = {
   ["tpope/vim-surround"] = {},
   ["editorconfig/editorconfig-vim"] = {},
   ["mattn/emmet-vim"] = {},
+  ["matze/vim-move"] = {},
   ["neovim/nvim-lspconfig"] = {
     config = function()
       require "plugins.configs.lspconfig"
