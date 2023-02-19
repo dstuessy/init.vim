@@ -10,12 +10,27 @@ local M = {
       require "custom.plugins.lspconfig"
     end,
   },
-  -- ["jose-elias-alvarez/null-ls.nvim"] = {
-  --     after = "nvim-lspconfig",
-  --     config = function()
-  --         require "custom.plugins.null-ls"
-  --     end,
-  -- }
+  ["MunifTanjim/nui.nvim"] = {
+    module = {"nui.layout", "nui.popup"},
+    module_pattern = {"nui.*"}
+  },
+  ["jackMort/ChatGPT.nvim"] = {
+    opt = true,
+    keys = {"<leader>gpt"},
+    module_pattern = {"chatgpt*"},
+    after = {"nui.nvim", "telescope.nvim"},
+    setup = function()
+      require("custom.plugins.configs.chat-gpt").load_api_key()
+    end,
+    config = function()
+      require("custom.plugins.configs.chat-gpt").setup()
+    end,
+    requires = {
+      "MunifTanjim/nui.nvim",
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope.nvim"
+    }
+  },
 }
 
 return M
