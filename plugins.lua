@@ -31,6 +31,7 @@ local M = {
       "nvim-telescope/telescope.nvim"
     }
   },
+  ["github/copilot.vim"] = {},
 }
 
 return M
