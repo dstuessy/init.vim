@@ -2,9 +2,11 @@ local M = {}
 
 M.disabled = {
   n = {
-    ["<S-b>"] = ""
+    ["<S-b>"] = "",
+    ["<Tab>"] = "",
+    ["<S-Tab>"] = ""
   }
-}
+} -- disable some default mappings
 
 M.tabufline = {
   n = {
