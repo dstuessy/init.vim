@@ -31,7 +31,34 @@ local M = {
       "nvim-telescope/telescope.nvim"
     }
   },
-  ["github/copilot.vim"] = {},
+  ["zbirenbaum/copilot.lua"] = {
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          -- enabled = false
+          auto_trigger = true,
+          keymap = {
+            accept = "<A-CR>",
+            accept_word = false,
+            accept_line = false,
+            next = "<A-Tab>",
+            prev = "<A-S-Tab>",
+            dismiss = "<A-[>",
+          },
+        },
+        panel = { enabled = false },
+      })
+    end,
+  },
+  ["zbirenbaum/copilot-cmp"] = {
+    required = { "zbirenbaum/copilot.lua" },
+    config = function ()
+      print("copilot-cmp config")
+      require("copilot_cmp").setup()
+    end
+  }
 }
 
 return M
