@@ -5,6 +5,13 @@ local M = {
   ["mattn/emmet-vim"] = {},
   ["matze/vim-move"] = {},
   ["neovim/nvim-lspconfig"] = {
+    dependencies = {
+      ["jose-elias-alvarez/null-ls.nvim"] = {
+        config = function()
+          require "custom.configs.null-ls"
+        end,
+      }
+    },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.plugins.lspconfig"
@@ -58,7 +65,7 @@ local M = {
       print("copilot-cmp config")
       require("copilot_cmp").setup()
     end
-  }
+  },
 }
 
 return M
