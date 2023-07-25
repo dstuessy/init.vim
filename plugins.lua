@@ -4,13 +4,14 @@ local M = {
   ["editorconfig/editorconfig-vim"] = {},
   ["mattn/emmet-vim"] = {},
   ["matze/vim-move"] = {},
+  ["jose-elias-alvarez/null-ls.nvim"] = {
+    config = function()
+      require "custom.configs.null-ls"
+    end,
+  },
   ["neovim/nvim-lspconfig"] = {
-    dependencies = {
-      ["jose-elias-alvarez/null-ls.nvim"] = {
-        config = function()
-          require "custom.configs.null-ls"
-        end,
-      }
+    requires = {
+      "jose-elias-alvarez/null-ls.nvim"
     },
     config = function()
       require "plugins.configs.lspconfig"
