@@ -1,13 +1,12 @@
-local on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
+local configs = require("plugins.configs.lspconfig")
+local on_attach = configs.on_attach
+local capabilities = configs.capabilities
 
-local lspconfig = require "lspconfig"
-local servers = { "html", "cssls", "clangd", "tsserver", "volar", "tailwindcss", "denols", "phpactor" }
+local servers = { "html", "cssls", "clangd", "tsserver", "volar", "tailwindcss", "denols", "phpactor", "rust_analyzer" }
 
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+  configs[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    autostart = lsp ~= "denols"
   }
 end
