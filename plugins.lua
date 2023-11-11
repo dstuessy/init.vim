@@ -1,28 +1,29 @@
-local M = {
-  ["BurntSushi/ripgrep"] = {},
-  ["tpope/vim-surround"] = {},
-  ["editorconfig/editorconfig-vim"] = {},
-  ["mattn/emmet-vim"] = {},
-  ["matze/vim-move"] = {},
-  ["jose-elias-alvarez/null-ls.nvim"] = {
+---@type NvPluginSpec[]
+local plugins = {
+  {"BurntSushi/ripgrep"},
+  {"tpope/vim-surround"},
+  {"editorconfig/editorconfig-vim"},
+  {"mattn/emmet-vim"},
+  {"jose-elias-alvarez/null-ls.nvim",
     config = function()
       require "custom.configs.null-ls"
     end,
   },
-  ["neovim/nvim-lspconfig"] = {
-    requires = {
-      "jose-elias-alvarez/null-ls.nvim"
+  {"neovim/nvim-lspconfig",
+    requires = { "jose-elias-alvarez/null-ls.nvim"
     },
     config = function()
       require "plugins.configs.lspconfig"
-      require "custom.plugins.lspconfig"
+      require "custom.configs.lspconfig"
     end,
   },
-  ["MunifTanjim/nui.nvim"] = {
-    module = {"nui.layout", "nui.popup"},
-    module_pattern = {"nui.*"}
+  {"MunifTanjim/nui.nvim",
+    opts = {
+      module = {"nui.layout", "nui.popup"},
+      module_pattern = {"nui.*"}
+    }
   },
-  ["jackMort/ChatGPT.nvim"] = {
+  {"jackMort/ChatGPT.nvim",
     opt = true,
     keys = {"<leader>gpt"},
     module_pattern = {"chatgpt*"},
@@ -39,7 +40,7 @@ local M = {
       "nvim-telescope/telescope.nvim"
     }
   },
-  ["zbirenbaum/copilot.lua"] = {
+  {"zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
@@ -60,7 +61,7 @@ local M = {
       })
     end,
   },
-  ["zbirenbaum/copilot-cmp"] = {
+  {"zbirenbaum/copilot-cmp",
     required = { "zbirenbaum/copilot.lua" },
     config = function ()
       print("copilot-cmp config")
@@ -69,4 +70,4 @@ local M = {
   },
 }
 
-return M
+return plugins
