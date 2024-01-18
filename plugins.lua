@@ -4,9 +4,12 @@ local plugins = {
   {"tpope/vim-surround"},
   {"editorconfig/editorconfig-vim"},
   {"mattn/emmet-vim"},
-  {"jose-elias-alvarez/null-ls.nvim",
+  {
+    "stevearc/conform.nvim",
+    --  for users those who want auto-save conform + lazyloading!
+    event = "BufWritePre",
     config = function()
-      require "custom.configs.null-ls"
+      require "custom.configs.conform"
     end,
   },
   {"neovim/nvim-lspconfig",
