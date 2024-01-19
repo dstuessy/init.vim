@@ -1,9 +1,12 @@
 ---@type NvPluginSpec[]
 local plugins = {
   {"BurntSushi/ripgrep"},
-  {"tpope/vim-surround"},
+  {"tpope/vim-surround", lazy = false},
   {"editorconfig/editorconfig-vim"},
-  {"mattn/emmet-vim"},
+  {
+    "mattn/emmet-vim",
+    ft = {"vue", "ts", "jsx", "tsx", "html"}
+  },
   {
     "stevearc/conform.nvim",
     --  for users those who want auto-save conform + lazyloading!
