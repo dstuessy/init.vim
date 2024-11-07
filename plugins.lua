@@ -33,14 +33,11 @@ local plugins = {
     opt = true,
     keys = {"<leader>gpt"},
     module_pattern = {"chatgpt*"},
-    after = {"nui.nvim", "telescope.nvim"},
-    setup = function()
-      require("custom.plugins.configs.chat-gpt").load_api_key()
-    end,
+    -- after = {"nui.nvim", "telescope.nvim"},
     config = function()
-      require("custom.plugins.configs.chat-gpt").setup()
+      require("custom.configs.chat-gpt").setup()
     end,
-    requires = {
+    dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim"
