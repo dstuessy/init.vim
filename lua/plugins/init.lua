@@ -1,25 +1,47 @@
 return {
+  {"tpope/vim-surround", lazy = false},
+  {
+    "mattn/emmet-vim",
+    ft = {"vue", "ts", "jsx", "tsx", "html"}
+  },
+  {"BurntSushi/ripgrep"}, -- required  for regexp search in telescope
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
-
-  -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
     config = function()
       require "configs.lspconfig"
     end,
   },
-
-  -- {
-  -- 	"nvim-treesitter/nvim-treesitter",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"vim", "lua", "vimdoc",
-  --      "html", "css"
-  -- 		},
-  -- 	},
-  -- },
+  {"zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    config = function()
+      require("copilot").setup({
+        suggestion = {
+          -- enabled = false
+          auto_trigger = true,
+          keymap = {
+            accept = "<A-CR>",
+            accept_word = false,
+            accept_line = false,
+            next = "<A-Tab>",
+            prev = "<A-S-Tab>",
+            dismiss = "<A-[>",
+          },
+        },
+        panel = { enabled = false },
+      })
+    end,
+  },
+  {"zbirenbaum/copilot-cmp",
+    required = { "zbirenbaum/copilot.lua" },
+    config = function ()
+      print("copilot-cmp config")
+      require("copilot_cmp").setup()
+    end
+  },
 }
