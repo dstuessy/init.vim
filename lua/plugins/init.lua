@@ -1,9 +1,5 @@
 return {
   {"tpope/vim-surround", lazy = false},
-  {
-    "mattn/emmet-vim",
-    ft = {"vue", "ts", "jsx", "tsx", "html"}
-  },
   {"BurntSushi/ripgrep"}, -- required  for regexp search in telescope
   {
     "stevearc/conform.nvim",
