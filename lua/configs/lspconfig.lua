@@ -42,7 +42,8 @@ local servers = {
   "csharp_ls",
   "gopls",
   "cucumber_language_server",
-  "emmet_language_server"
+  "emmet_language_server",
+  "clangd",
 }
 
 for _, lsp in ipairs(servers) do
