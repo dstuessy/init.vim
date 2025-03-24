@@ -15,8 +15,13 @@ return {
   {"zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
+    enabled = false,
     config = function()
       require("copilot").setup({
+        -- disabling copilot for personal use
+        filetypes = {
+          ["*"] = false,
+        },
         suggestion = {
           -- enabled = false
           auto_trigger = true,
@@ -48,15 +53,17 @@ return {
     opts = {
       -- add any opts here
       -- for example
-      provider = "copilot",
-      -- claude = {
-      --   endpoint = "https://api.anthropic.com",
-      --   model = "claude-3-5-sonnet-20241022", -- your desired model (or use gpt-4o, etc.)
-      --   timeout = 30000, -- timeout in milliseconds
-      --   temperature = 0, -- adjust if needed
-      --   max_tokens = 4096,
-      --   -- reasoning_effort = "high" -- only supported for "o" models
-      -- },
+      -- provider = "copilot",
+      provider = "claude",
+      claude = {
+        endpoint = "https://api.anthropic.com",
+        -- model = "claude-3-5-sonnet-20241022", -- your desired model (or use gpt-4o, etc.)
+        model = "claude-3-5-haiku-20241022", -- your desired model (or use gpt-4o, etc.)
+        timeout = 30000, -- timeout in milliseconds
+        temperature = 0, -- adjust if needed
+        max_tokens = 4096,
+        -- reasoning_effort = "high" -- only supported for "o" models
+      },
       -- openai = {
       --   ["api_key_name"] = "",
       --   endpoint = "http://localhost:11434/v1",
