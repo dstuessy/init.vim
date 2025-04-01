@@ -54,14 +54,22 @@ return {
       -- add any opts here
       -- for example
       -- provider = "copilot",
-      provider = "claude",
-      claude = {
-        endpoint = "https://api.anthropic.com",
-        -- model = "claude-3-5-sonnet-20241022", -- your desired model (or use gpt-4o, etc.)
-        model = "claude-3-5-haiku-20241022", -- your desired model (or use gpt-4o, etc.)
+      -- provider = "claude",
+      -- claude = {
+      --   endpoint = "https://api.anthropic.com",
+      --   model = "claude-3-5-haiku-20241022", -- your desired model (or use gpt-4o, etc.)
+      --   timeout = 30000, -- timeout in milliseconds
+      --   temperature = 0, -- adjust if needed
+      --   max_tokens = 4096,
+      --   -- reasoning_effort = "high" -- only supported for "o" models
+      -- },
+      provider = "gemini",
+      gemini = {
+        endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
+        model = "gemini-2.0-flash", -- your desired model (or use gpt-4o, etc.)
         timeout = 30000, -- timeout in milliseconds
         temperature = 0, -- adjust if needed
-        max_tokens = 4096,
+        max_tokens = 20480,
         -- reasoning_effort = "high" -- only supported for "o" models
       },
       -- openai = {
