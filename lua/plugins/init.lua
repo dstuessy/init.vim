@@ -79,6 +79,9 @@ return {
       --   temperature = 0,
       --   max_tokens = 4096,
       -- },
+      web_search_engine = {
+        provider = "tavily", -- tavily, serpapi, searchapi, google or kagi
+      }
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
