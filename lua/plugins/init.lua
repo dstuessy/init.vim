@@ -40,6 +40,7 @@ return {
   },
   {"zbirenbaum/copilot-cmp",
     required = { "zbirenbaum/copilot.lua" },
+    enabled = false,
     config = function ()
       print("copilot-cmp config")
       require("copilot_cmp").setup()
