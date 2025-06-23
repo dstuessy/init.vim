@@ -51,35 +51,45 @@ return {
     event = "VeryLazy",
     lazy = false,
     version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
+    behaviour = {
+        --- ... existing behaviours
+        enable_cursor_planning_mode = true, -- enable cursor planning mode!
+    },
     opts = {
       -- add any opts here
       -- for example
       -- provider = "copilot",
-      -- provider = "claude",
-      -- claude = {
-      --   endpoint = "https://api.anthropic.com",
-      --   model = "claude-3-5-haiku-20241022", -- your desired model (or use gpt-4o, etc.)
-      --   timeout = 30000, -- timeout in milliseconds
-      --   temperature = 0, -- adjust if needed
-      --   max_tokens = 4096,
-      --   -- reasoning_effort = "high" -- only supported for "o" models
-      -- },
       provider = "gemini",
-      gemini = {
-        endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
-        model = "gemini-2.0-flash", -- your desired model (or use gpt-4o, etc.)
-        timeout = 30000, -- timeout in milliseconds
-        temperature = 0, -- adjust if needed
-        max_tokens = 20480,
-        -- reasoning_effort = "high" -- only supported for "o" models
+      providers = {
+        claude = {
+          endpoint = "https://api.anthropic.com",
+          -- model = "claude-3-5-haiku-20241022", -- your desired model (or use gpt-4o, etc.)
+          model = "claude-4-sonnet-20250514", -- your desired model (or use gpt-4o, etc.)
+          timeout = 30000, -- timeout in milliseconds
+          extra_request_body = {
+            temperature = 0, -- adjust if needed
+            max_tokens = 4096,
+          }
+          -- reasoning_effort = "high" -- only supported for "o" models
+        },
+        gemini = {
+          endpoint = "https://generativelanguage.googleapis.com/v1beta/models",
+          model = "gemini-2.5-flash", -- your desired model (or use gpt-4o, etc.)
+          timeout = 30000, -- timeout in milliseconds
+          temperature = 0, -- adjust if needed
+          extra_request_body = {
+              max_tokens = 20480,
+            }
+        },
+        ollama = {
+          endpoint = "http://localhost:11434",
+          model = "qwen2.5-coder:1.5b",
+          extra_request_body = {
+              temperature = 0,
+              max_tokens = 4096,
+            }
+        },
       },
-      -- openai = {
-      --   ["api_key_name"] = "",
-      --   endpoint = "http://localhost:11434/v1",
-      --   model = "qwen2.5-coder:1.5b",
-      --   temperature = 0,
-      --   max_tokens = 4096,
-      -- },
       web_search_engine = {
         provider = "tavily", -- tavily, serpapi, searchapi, google or kagi
       }
