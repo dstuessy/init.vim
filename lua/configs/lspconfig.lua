@@ -39,11 +39,10 @@ local servers = {
   "phpactor",
   "rust_analyzer",
   "arduino_language_server",
-  "csharp_ls",
+  "omnisharp",
   "gopls",
   "cucumber_language_server",
   "emmet_language_server",
-  "clangd",
 }
 
 for _, lsp in ipairs(servers) do
@@ -67,6 +66,14 @@ for _, lsp in ipairs(servers) do
         tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib",
       },
     }
+  end
+
+  if lsp == "omnisharp" then
+    options.cmd = {
+      "/home/danielstuessy/.local/share/nvim/mason/packages/omnisharp/OmniSharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid())
+    }
+    -- options.cmd = { omnisharp_path, "--languageserver", "--hostPID", tostring(vim.fn.getpid()) }
+    -- options.root_dir = require('lspconfig').util.root_pattern("*.csproj", "*.sln")
   end
 
   if lsp == "emmet_language_server" then
