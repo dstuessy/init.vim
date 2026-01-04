@@ -50,9 +50,5 @@ return {
         },
       })
     end,
-  },
-  {
-    "pimalaya/himalaya-vim",
-    lazy = false
   }
 }
