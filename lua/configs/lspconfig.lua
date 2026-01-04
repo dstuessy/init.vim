@@ -114,5 +114,6 @@ for _, lsp in ipairs(servers) do
     }
   end
 
-  lspconfig[lsp].setup(options)
+  -- lspconfig[lsp].setup(options)
+  vim.lsp.config = options
 end
