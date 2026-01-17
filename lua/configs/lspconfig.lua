@@ -30,6 +30,7 @@ local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
 local servers = {
+  "lua_lsp",
   "html",
   "cssls",
   "clangd",
@@ -69,9 +70,9 @@ for _, lsp in ipairs(servers) do
   end
 
   if lsp == "omnisharp" then
-    options.cmd = {
-      "/home/danielstuessy/.local/share/nvim/mason/packages/omnisharp/OmniSharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid())
-    }
+    -- options.cmd = {
+    --   "/home/danielstuessy/.local/share/nvim/mason/packages/omnisharp/OmniSharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid())
+    -- }
     -- options.cmd = { omnisharp_path, "--languageserver", "--hostPID", tostring(vim.fn.getpid()) }
     -- options.root_dir = require('lspconfig').util.root_pattern("*.csproj", "*.sln")
   end
@@ -115,5 +116,6 @@ for _, lsp in ipairs(servers) do
   end
 
   -- lspconfig[lsp].setup(options)
-  vim.lsp.config = options
+  vim.lsp.config(lsp, options)
+  vim.lsp.enable(lsp)
 end
